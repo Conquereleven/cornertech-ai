@@ -5,6 +5,7 @@ import os
 from pathlib import Path, PurePosixPath
 import re
 import subprocess
+import sys
 
 
 def classify(event_name, event, files, has_guard=False):
@@ -56,7 +57,8 @@ def changed_files(event):
     # additions/deletions, so moving runtime code under docs cannot downgrade CI.
     raw = subprocess.check_output(['git', 'diff', '--name-only', '--no-renames', '-z', base, head])
     files = [name for name in raw.decode('utf-8').split('\0') if name]
-    subprocess.run(['git', 'diff', '--check', base, head], check=True)
+    # stdout is reserved for GITHUB_OUTPUT; diagnostics must not corrupt it.
+    subprocess.run(['git', 'diff', '--check', base, head], check=True, stdout=sys.stderr)
     return files
 
 
