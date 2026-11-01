@@ -1,5 +1,10 @@
 import importlib.util
+import json
+import os
 from pathlib import Path
+import subprocess
+import sys
+import tempfile
 import unittest
 
 spec = importlib.util.spec_from_file_location('ci_scope', Path(__file__).parents[1] / 'scripts/ci-scope.py')
@@ -53,6 +58,48 @@ class ScopeTests(unittest.TestCase):
             self.assertIn('name: ' + gate, ci)
         self.assertIn('tests/apiContainment.test.js', ci)
         self.assertIn('tests/public-release-boundary.test.js', ci)
+
+class ScopeOutputTests(unittest.TestCase):
+    def test_git_diagnostics_do_not_corrupt_github_outputs(self):
+        script = Path(module.__file__).resolve()
+        for path, content, tier in [
+            ('README.md', '# Clean documentation\n', 'docs'),
+            ('README.md', '# Markdown hard break  \nNext line\n', 'full'),
+            ('docs/governance/world-class-operating-standard.md', '# Policy  \nNext line\n', 'full'),
+        ]:
+            with self.subTest(path=path, tier=tier), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+
+                def git(*args):
+                    return subprocess.check_output(
+                        ['git', '-c', 'user.name=CI Test', '-c', 'user.email=ci@example.invalid', *args],
+                        cwd=root, stderr=subprocess.PIPE, text=True,
+                    ).strip()
+
+                git('init', '-q')
+                git('commit', '-q', '--allow-empty', '-m', 'base')
+                base = git('rev-parse', 'HEAD')
+                file = root / path
+                file.parent.mkdir(parents=True, exist_ok=True)
+                file.write_text(content, encoding='utf-8')
+                git('add', path)
+                git('commit', '-q', '-m', 'documentation change')
+                event = {'pull_request': {
+                    'draft': True, 'base': {'sha': base}, 'head': {'sha': git('rev-parse', 'HEAD')},
+                }}
+                event_path = root / 'event.json'
+                event_path.write_text(json.dumps(event), encoding='utf-8')
+                result = subprocess.run(
+                    [sys.executable, str(script)], cwd=root, capture_output=True, text=True,
+                    env={**os.environ, 'GITHUB_EVENT_NAME': 'pull_request', 'GITHUB_EVENT_PATH': str(event_path)},
+                )
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertEqual(result.stdout, f'tier={tier}\n')
+                if '  \n' in content:
+                    self.assertIn('trailing whitespace.', result.stderr)
+                else:
+                    self.assertEqual(result.stderr, '')
+
 
 if __name__ == '__main__':
     unittest.main()
