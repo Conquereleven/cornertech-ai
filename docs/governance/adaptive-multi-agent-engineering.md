@@ -6,7 +6,7 @@
 - **Scope:** CornerTech AI engineering workflows using Codex, Claude Code, OpenCode or future agents. Applies to a repository only after explicit adoption; client-specific instructions and permissions remain controlling.
 - **Canonical execution authority:** `docs/governance/execution-standard.md` (Execution Standard 1.0).
 - **Quality bar:** `docs/governance/world-class-operating-standard.md` (CT-WCOS v1.1).
-**Security:** `docs/security/permissions.md`, `docs/security/human-in-the-loop.md` and applicable client/release gates.
+- **Security:** `docs/security/permissions.md`, `docs/security/human-in-the-loop.md` and applicable client/release gates.
 
 ## 1. Objective and non-goals
 
@@ -106,7 +106,7 @@ Maintain one lightweight **capability inventory** in the workstream or existing 
 
 - First proposed repository file: `docs/governance/adaptive-multi-agent-engineering.md`.
 - Keep CT-WCOS v1.1 and Execution Standard 1.0 unchanged for this first adoption unless an independently justified, separately approved gap requires a minimal amendment.
-- Do not edit `AGENTS.md` / `CLAUDE.md` while existing Draft PR #110 owns their stale CT-WCOS status references; prepare a minimal reference addition only after reconciling PR #110 and obtaining authorization for that edit.
+- PR #110 has already corrected the CT-WCOS v1.1 references and merged into `main` at `c59e17034ea37ab4556214ff43b05a59f97405b9`. Adding AMAE references to `AGENTS.md` / `CLAUDE.md` requires a separate, scoped and reviewed change with any protected integrity-baseline update. This proposal does not load AMAE automatically for repository agents.
 - CornerMemory and CornerRouterWay remain parallel specialized tracks with stable planned interfaces; no runtime coupling required for AMAE v0.1.
 - Scope of first proposed change is documentation/contract only. Implementing automatic agent or model routing requires a distinct scoped change and tests.
 - Existing product/client repos require explicit separate adoption, their own security checks and release approvals.
@@ -115,10 +115,10 @@ Maintain one lightweight **capability inventory** in the workstream or existing 
 
 **Repository read-only evidence inspected 2026-11-08:** `Conquereleven/cornertech-ai` `main` at reported commit `7e43d403c50c5406fecf6b23fb4b8e497ae2aaaf`: Execution Standard 1.0; CT-WCOS v1.1; root AGENTS.md; `src/core/agents/AgentOrchestrator.js`, `AgentRegistry.js`, `src/core/memory/AgentMemoryService.js`. Existing agent components belong to the CornerOps implementation surface and do not prove a cross-tenant enterprise orchestrator.
 
-**PR state:** Draft PR #110 open, head `7730151e6c0c744cb0c7165ac11226f1c44a0d2f`, corrects stale CT-WCOS v1.1 adoption wording. Previously adopted v1.1 via PR #109. Do not duplicate its change or treat draft state as adoption.
+**PR state:** PR #110 merged on 2026-11-08 as `c59e17034ea37ab4556214ff43b05a59f97405b9`, correcting stale CT-WCOS v1.1 adoption wording. CT-WCOS v1.1 was previously adopted via PR #109. The AMAE document remains a proposal until its own separately verified adoption and agent-instruction loading.
 
 **Linear:** CTAI-15 in progress (M1 bootstrap, M2 dependency not presumed); CTAI-19 in progress (OpenCode/IFM checks; scope and limitations must be preserved). Pilot evidence and permission status are to be confirmed on the executing machine before further work.
 
 **Unknowns / validation before rollout:** current M1/M2 local tool readiness, exact task authorization in each target repo, capability benchmarks across agents, cost/provider policies, chosen place for the registry, and whether docs added to repo affect integrity baselines. All remain unverified until checked.
 
-**Decision status:** This file is a draft for Founder review. No CLI agents ran tests for this document; no independent review or local repo commit has been performed.
+**Decision status:** The Founder has authorized progressing the governance integration, but this file remains a Draft PR proposal. Repository CI was successful on its prior SHA; independent agent review, final adoption-status update and fresh-session instruction loading are still pending. Publishing the proposal does not constitute operational adoption.
