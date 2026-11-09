@@ -1,8 +1,8 @@
 {
   "base": "11abdb38ec5bb1feda8aefffcf65fc6cb396578d",
   "fileCount": 799,
-  "sha256": "fd6ed5e02dbd7245c1760a8bb6e3811112335414884653462431c6c13ac3bcea",
-  "authorizedSprint": "CT-WEB-V2-RELEASE-01 + CT-INFRA-GHA-01/02 + CT-EXECUTION-STANDARD-1.0 + CT-WCOS-v1.0 / CI-output-diagnostics (Founder-approved 2026-10-27) + CT-WCOS-v1.1 (CTAI-18, Founder-approved scope 2026-11-02; adopted-status references, Founder GO 2026-11-06)",
+  "sha256": "85cf1e83106e1ed639c3900a5673477ed30eeac3ad96c20020d3cd4688eada48",
+  "authorizedSprint": "CT-WEB-V2-RELEASE-01 + CT-INFRA-GHA-01/02 + CT-EXECUTION-STANDARD-1.0 + CT-WCOS-v1.0 / CI-output-diagnostics (Founder-approved 2026-10-27) + CT-WCOS-v1.1 (CTAI-18, Founder-approved scope 2026-11-02; adopted-status references, Founder GO 2026-11-06) + Ecosystem corporate governance closure (ECOSYSTEM-DEC-002, Founder GO 2026-11-09: AMAE v0.1 / design v0.1 / memory v0.2 / Charter RC1 decision register, docs and root agent references)",
   "authorizedChanges": [
     "src/app.js",
     "frontend/vite.config.ts",
@@ -17,6 +17,6 @@
     "AGENTS.md",
     "CLAUDE.md"
   ],
-  "previousSha256": "5c2fc34065915876a3223f6e8622520873b98c53059e9bc5bf0647bd6be756eb",
-  "previousStageSha256": "de9a79d6879c8bcdb72b99ae96cf465982f51051d4b0f85c36312383157082aa"
+  "previousSha256": "fd6ed5e02dbd7245c1760a8bb6e3811112335414884653462431c6c13ac3bcea",
+  "previousStageSha256": "5c2fc34065915876a3223f6e8622520873b98c53059e9bc5bf0647bd6be756eb"
 }
