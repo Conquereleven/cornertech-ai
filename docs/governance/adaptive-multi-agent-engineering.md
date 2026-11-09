@@ -1,6 +1,6 @@
 # CornerTech AI · Adaptive Multi-Agent Engineering (AMAE) v0.1
 
-- **Status:** PROPOSED / PREPARED. Not adopted, merged, deployed or enabled in any agent runtime.
+- **Status:** FOUNDER APPROVED as corporate engineering coordination policy on 2026-11-09 (ECOSYSTEM-DEC-002). Repository merge/adoption pending, and no automatic agent-runtime enablement or cross-repository installation is implied.
 - **Date:** 2026-11-08
 - **Owner of adoption and material approvals:** Founder & CEO.
 - **Scope:** CornerTech AI engineering workflows using Codex, Claude Code, OpenCode or future agents. Applies to a repository only after explicit adoption; client-specific instructions and permissions remain controlling.
@@ -121,4 +121,4 @@ Maintain one lightweight **capability inventory** in the workstream or existing 
 
 **Unknowns / validation before rollout:** current M1/M2 local tool readiness, exact task authorization in each target repo, capability benchmarks across agents, cost/provider policies, chosen place for the registry, and whether docs added to repo affect integrity baselines. All remain unverified until checked.
 
-**Decision status:** The Founder has authorized progressing the governance integration, but this file remains a Draft PR proposal. Repository CI was successful on its prior SHA; independent agent review, final adoption-status update and fresh-session instruction loading are still pending. Publishing the proposal does not constitute operational adoption.
+**Decision status:** Founder APPROVED the AMAE v0.1 governance direction on 2026-11-09, recorded in the CornerTech AI Governance Linear project as ECOSYSTEM-DEC-002. This branch remains Draft PR #111, pending the existing review, repository adoption/merge and agent-instruction loading evidence. Codex M1 local activation was reported verified only within its tested scope; other agents, machines and repositories are not deemed activated. Founder policy approval does not authorize production or new tooling effects.
