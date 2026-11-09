@@ -4,7 +4,7 @@
 
 **Repository adoption (v1.0):** Adopted in this repository through [PR #106](https://github.com/Conquereleven/cornertech-ai/pull/106), merged on 2026-11-01 at `4e0c5047f2a1f90c8db89b2af8097382e515db7a`; fresh-session instruction-loading acceptance remains tracked in [CTAI-6](https://linear.app/cornertechai/issue/CTAI-6).
 
-**v1.1 status:** Proposal pending separate review and Founder merge approval. The Founder approved direction and local preparation on 2026-11-02 in [CTAI-18](https://linear.app/cornertechai/issue/CTAI-18); this is not repository adoption or authorization to push, open a remote PR, merge or deploy.
+**Repository adoption (v1.1):** Adopted in this repository through [PR #109](https://github.com/Conquereleven/cornertech-ai/pull/109), merged on 2026-11-03 at `7e43d403c50c5406fecf6b23fb4b8e497ae2aaaf`. The Founder approved direction and local preparation on 2026-11-02 in [CTAI-18](https://linear.app/cornertechai/issue/CTAI-18). Adoption is not authorization to push, open a remote PR, merge or deploy any other change.
 
 **Scope:** Design, engineering, product, innovation/AI, and execution.
 
@@ -132,7 +132,7 @@ Every material task/PR must make these discoverable in its existing record:
 ## 6. Adoption status and explicit exclusions
 
 - **First adoption surface (v1.0 history):** this repository, through merged PR #106 on 2026-11-01. Fresh-session instruction-loading acceptance remains tracked in CTAI-6; merge alone does not close that task.
-- **v1.1 proposal:** local changes to this policy and the two root agent entrypoints only, pending independent review and separate Founder authorization for push/PR and later merge. The existing Execution Standard stays intact.
+- **v1.1 adoption:** this policy and the two root agent entrypoints, through merged PR #109 on 2026-11-03. The existing Execution Standard stays intact; merge alone does not close CTAI-18.
 - **First quality pilot:** Website 3.0 design-first review, **not** authorization to code, merge or deploy. Preserve the stable Website 2.0 release and truthful labeling of Commerce as in development.
 - **Other repositories:** inspect ownership, customer boundaries, current instructions and risk first; adopt individually through their own approved changes. No automatic propagation.
 - **Pricing/unit economics:** remain HOLD until separate Founder approval.
@@ -144,4 +144,4 @@ Changes to CT-WCOS require a versioned proposal, impact/risk note, review and Fo
 
 **Approval record (v1.0 history):** Founder GO, 2026-10-26, to adopt CT-WCOS v1.0 corporately and **prepare repository integration without merge or deployment**. Subsequent separate Founder merge GO and the 2026-11-01 merge of PR #106 are recorded in CTAI-6; that later authorization did not exist in the original preparation GO.
 
-**v1.1 proposal record:** Founder approved direction and local preparation on 2026-11-02 (CTAI-18). Impact/risk: agent guidance only; canonical execution policy, security controls, permissions and product code remain unchanged. The two root agent entrypoints participate in the protected release digest; updating its baseline requires separate scope and Founder authorization before integration. Independent review, separate push/PR authorization and later Founder merge approval remain required; v1.1 is not yet adopted.
+**v1.1 proposal record:** Founder approved direction and local preparation on 2026-11-02 (CTAI-18). Impact/risk: agent guidance only; canonical execution policy, security controls, permissions and product code remain unchanged. The two root agent entrypoints participate in the protected release digest; updating its baseline requires separate scope and Founder authorization before integration. Founder merge approval was subsequently given and v1.1 was adopted through the 2026-11-03 merge of PR #109 (`7e43d403c50c5406fecf6b23fb4b8e497ae2aaaf`); that later authorization did not exist in the original preparation GO.
