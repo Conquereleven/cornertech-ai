@@ -143,8 +143,58 @@ Si A demuestra un disparador real de Production, NO HAGAS push; muestra
 el campo/trigger preciso y la mínima alternativa segura.
 ```
 
-## 9. Disposición de este documento
+## 9. REG-01 · Resource Efficiency Gate (2026-11-20)
 
-**Estado:** FOUNDER APPROVED (contenido), **no integrado ni adoptado técnicamente en el repositorio corporativo**.  
+**Decisión y alcance:** el Founder autorizó el 20 de noviembre de 2026 actualizar la rama existente del Draft PR #112 para incorporar REG-01 y reparar la huella de integridad protegida. **No autorizó merge, deploy, nuevas suscripciones, credenciales ni cambios en los repositorios de clientes.** Esta sección complementa AF-R1–AF-R10 y AMAE v0.1; no reemplaza Execution Standard 1.0 ni CT-WCOS v1.1. Su adopción técnica requiere CI, revisión independiente, GO específico de merge y comprobación de carga en sesión nueva.
+
+**Principio:** optimizar recursos por **resultado verificable**, no por tokens, llamadas a herramientas, número de agentes o informes producidos. La calidad, seguridad, privacidad y autorizaciones obligatorias nunca se reducen para cumplir un presupuesto.
+
+### REG-R1 · Preflight de capacidad y coste
+
+En el **registro ya existente** de la tarea/issue/PR, antes de iniciar un trabajo que use modelos, dejar identificables:
+- Resultado, DRI, entorno, alcance y permisos ya vigentes.
+- Agente/harness/modelo/proveedor elegidos y motivo de selección SOLO / DUAL / SPECIALIZED.
+- Disponibilidad y cuota del proveedor cuando sean observables; si no lo son, `UNKNOWN`, nunca cero ni ilimitado por suposición.
+- Clase de coste o límite disponible, sin convertir cuota de suscripción a gasto monetario ficticio.
+- Presupuesto de ejecución **acotado al problema**: archivos/rutas que inspeccionar, pruebas que aportan evidencia y condición de parada.
+
+No arrancar sesiones extensas con cuota declarada agotada ni reactivar un proveedor bloqueado; permitir trabajo local no dependiente de ese proveedor dentro del GO.
+
+### REG-R2 · Ejecución mínima y protección del contexto
+
+- Elegir **un implementador**. Incorporar revisor o especialista sólo por riesgo/política/capacidad verificable; el modo SOLO no elimina revisiones obligatorias.
+- No encadenar coordinador, subagente y revisor por costumbre. Hermes u otro harness sólo se emplean cuando exista un beneficio comprobado y permisos efectivos; la pausa operativa del Gateway de Hermes no modifica ni borra instalaciones.
+- Consultar primero instrucciones aplicables, evidencia existente, delta y archivos relevantes. Evitar releer repositorios enteros, repetir suites sin cambios materiales, abrir largas transcripciones o cargar skills no relacionadas.
+- Entregar al siguiente agente el **contrato mínimo y el SHA exacto**, no el historial completo. Reusar resultados válidos y distinguir `REPORTED`, `VERIFIED LOCAL`, `VERIFIED` y `UNKNOWN`.
+
+### REG-R3 · Stop-loss y recuperación
+
+- Si la cuota se agota, falla la autenticación, falta permiso o aparece un coste/transferencia de datos no autorizado: **detener sólo la acción afectada**, preservar estado y continuar lo seguro.
+- Tras **dos disposiciones REVISE consecutivas por la misma causa raíz**, no iniciar automáticamente una tercera ronda. Revisar contrato/invariantes, pruebas negativas y arquitectura; autorizar sólo el siguiente delta enfocado.
+- Nunca resolver límites por bypass de políticas, cambio a `Unrestricted`, proveedor no aprobado, omisión de pruebas obligatorias o auto-revisión.
+- Dejar pendientes los gates críticos no verificables: un presupuesto agotado **no convierte EXECUTED en VERIFIED ni CLOSED**.
+
+### REG-R4 · Medición y decisión de herramientas
+
+Registrar cuando sean observables: proveedor/harness/modelo, fecha, cuota inicial/final, tokens de entrada/salida/caché por separado, llamadas relevantes, tiempo hasta resultado, intervenciones humanas, pruebas y disposición del SHA. **No sumar tokens de caché como si fueran necesariamente nuevos, facturables o atribuibles a un solo agente.** Si un contador no está disponible, marcar `UNKNOWN`.
+
+Una integración u orquestador nuevo necesita una comparación representativa contra ejecución directa, con aceptación y riesgos equivalentes; continuar sólo si reduce recursos o intervención **sin** aumentar regresiones, infracciones o trabajo repetido. No prometer ahorros basados en una sola sesión no comparable.
+
+### REG-R5 · Pruebas negativas de adopción
+
+En una **sesión fresca** del agente y repositorio que adopte la regla, comprobar como mínimo:
+1. Cuota conocida en 0 %: no iniciar una cadena de modelos y reportar bloqueo localizado.
+2. Tarea pequeña y reversible: seleccionar SOLO cuando la política específica lo permita, sin forzar DUAL.
+3. Checkout/pagos o riesgo crítico: mantener revisión independiente y pruebas negativas aunque haya presupuesto ajustado.
+4. Dos REVISE de la misma causa: replantear el contrato antes de consumir otra ronda.
+5. Evidencia válida del mismo SHA: evitar repetir suites sin un riesgo nuevo.
+6. Herramienta o proveedor no autorizado: no activar ni compartir código/datos; pedir sólo el GO específico.
+7. Desconocer el uso de caché o precio: registrar `UNKNOWN`, nunca inventar coste ni declarar ahorro.
+
+**Gate de adopción:** actualización en rama ≠ CI PASS ≠ revisión independiente ≠ merge ≠ carga efectiva en nuevos agentes/repositorios. Cada paso conserva evidencia y GO propios; repositorios de clientes requieren adopción separada.
+
+## 10. Disposición de este documento
+
+**Estado:** FOUNDER APPROVED (Anti-Friction v0.1 y adición REG-01 del 20-11-2026), **sin merge ni adopción técnica verificada en el repositorio corporativo**.  
 **Ejecución 3L:** el GO de GitHub sigue vigente, pero el agente local todavía debe realizar el push/PR y aportar evidencia remota. Este RFC **no** certifica que ese trabajo ya se ejecutó.  
 **Siguiente decisión empresarial:** revisar/aceptar o ajustar la enmienda; no se solicita ninguna aprobación adicional para el alcance de push + Draft PR existente.
